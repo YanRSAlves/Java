@@ -1,0 +1,63 @@
+import java.util.Scanner;
+public class Main
+{
+	public static void main(String[] args) {
+	    Scanner scanner = new Scanner(System.in);
+	    
+		System.out.println("\nExercicio 2");
+        System.out.println("Digite o saldo medio do cliente: ");
+        double saldoMedio = scanner.nextDouble();
+        double valorCredito = 0.0;
+        int saldoInt = (int) saldoMedio;
+        double percentualCredito = 0.0;
+        
+        //System.out.println("opção de saldoInt:  " + saldoInt/200);
+        switch(saldoInt){  
+            case 200:
+                    // caso unico 200 atribuido para salario medio
+                    percentualCredito = 0.0;
+                    break;
+                    
+            case 400:
+                    // caso unico 400 atribuido para salario medio
+                    percentualCredito = 0.2;
+                    break;
+                    
+            case 600:
+                    // caso unico 600 atribuido para salario medio
+                    percentualCredito = 0.3;
+                    break;
+                    
+            default:
+                switch (saldoInt / 200){
+                    case 0:
+                        // 0 a 199 atribuido para salario medio
+                        percentualCredito = 0.0;
+                        break;
+                    case 1:
+                        //201 a 399 atribuido para salario medio
+                        percentualCredito =  0.2;
+                        break;
+                    
+                    case 2:
+                        //401 a 599 atribuido para salario medio
+                        percentualCredito =  0.3;
+                        break;
+                    
+                    default:
+                        //601+ atribuido para salario medio
+                        percentualCredito = 0.4;
+                        break;
+                }
+            break;
+        }
+           
+        System.out.format("Valor do percentual atribuido foi: %.1f\n", (percentualCredito));
+        
+        valorCredito = saldoMedio * percentualCredito;
+        
+        System.out.println("\nSaldo medio: " + saldoMedio);
+        System.out.println("Valor do credito: " + valorCredito);
+                
+	}
+}
